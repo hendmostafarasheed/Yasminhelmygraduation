@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#6d160f">
+<meta name="description" content="دعوة تخرج ياسمين حلمي - كلية الإعلام، جامعة القاهرة">
+<title>دعوة تخرج | ياسمين حلمي</title>
+<style>
+:root{--wine:#761810;--gold:#b08343;--cream:#f7edda;--ink:#482617}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#efe2cb;color:var(--ink);font-family:Tahoma,Arial,sans-serif}
+main{width:min(100%,850px);margin:auto;padding:18px 14px 32px}
+.intro{text-align:center;padding:16px 8px 20px}
+.eyebrow{letter-spacing:1px;color:var(--gold);font-size:.9rem}
+h1{font-size:clamp(1.6rem,5vw,2.7rem);color:var(--wine);margin:8px 0}
+.subtitle{margin:0;color:#65432d}
+.invite-image{display:block;width:100%;height:auto;border-radius:5px;box-shadow:0 12px 34px #54351f30;margin:0 auto 20px}
+.actions{background:linear-gradient(145deg,#fff8e9,#ead5b0);border:1px solid #b88a4d;border-radius:18px;padding:20px;margin:22px 0;box-shadow:0 8px 25px #54351f18}
+.actions h2{text-align:center;margin:0 0 8px;font-size:1.25rem}
+.actions p{text-align:center;line-height:1.8;margin:0 0 16px}
+.buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+button,.button{font:inherit;font-weight:bold;cursor:pointer;text-decoration:none;text-align:center;border:1px solid #b08343;border-radius:999px;padding:13px 12px;background:#f0dfbd;color:#542817;transition:transform .15s,filter .15s;display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px}
+button:hover,.button:hover{transform:translateY(-2px);filter:brightness(1.03)}
+.primary{background:var(--wine);color:#fbe6b5;border-color:#d1a45e}
+.status{display:none;text-align:center;background:#fff9ed;border-radius:10px;padding:12px;margin-top:14px;line-height:1.7}
+.status.show{display:block}
+.music-control{position:sticky;top:8px;z-index:5;width:max-content;max-width:100%;margin:0 auto 12px;background:#fff7e8eF;border:1px solid #b08343;border-radius:999px;padding:8px 14px;box-shadow:0 4px 14px #54351f1c;display:flex;gap:10px;align-items:center}
+.music-control button{min-height:36px;padding:7px 13px}
+footer{text-align:center;padding:16px 8px 4px;color:#765a3d;font-size:.9rem}
+dialog{width:min(92vw,600px);border:1px solid #b08343;border-radius:16px;background:#fff8e9;color:var(--ink);padding:18px;box-shadow:0 20px 70px #24140d55}
+dialog::backdrop{background:#21140eb8}
+dialog img{width:100%;height:auto;border-radius:8px}
+.dialog-actions{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+@media(max-width:480px){main{padding:8px 8px 24px}.actions{padding:16px 12px}.buttons{grid-template-columns:1fr}.intro{padding-top:12px}}
+</style>
+</head>
+<body>
+<main>
+  <div class="music-control">
+    <span id="musicLabel">🎵 موسيقى الدعوة</span>
+    <button type="button" id="musicToggle" aria-label="تشغيل أو إيقاف الموسيقى">تشغيل الموسيقى</button>
+  </div>
+  <audio id="bgMusic" src="abdelhaleem22.mp3" preload="auto" loop></audio>
+
+  <header class="intro">
+    <div class="eyebrow">بكل فخر وامتنان</div>
+    <h1>دعوة تخرج ياسمين حلمي</h1>
+    <p class="subtitle">كلية الإعلام – جامعة القاهرة</p>
+  </header>
+
+  <img class="invite-image" src="cover.png" alt="غلاف دعوة تخرج ياسمين حلمي">
+
+  <section class="actions" aria-labelledby="details-title">
+    <h2 id="details-title">يشرفنا حضوركم ومشاركتنا الفرحة 🎓</h2>
+    <p>رحلة من الاجتهاد تصل إلى الحلم…<br>وجودكم يجعل فرحتنا أجمل.</p>
+    <div class="buttons">
+      <a class="button primary" id="locationBtn" href="https://www.google.com/maps/search/?api=1&query=Faculty+of+Mass+Communication+Cairo+University" target="_blank" rel="noopener">📍 موقع الجامعة على Google Maps</a>
+      <button type="button" id="rsvp">👤 تأكيد الحضور عبر واتساب</button>
+      <button type="button" id="share">🔗 مشاركة الدعوة</button>
+      <button type="button" id="photos">🖼️ صور الدعوة</button>
+      <button type="button" id="video">▶️ فيديو الحفل</button>
+      <button type="button" id="copy">📋 نسخ رابط الدعوة</button>
+    </div>
+    <div class="status" id="status" role="status" aria-live="polite"></div>
+  </section>
+
+  <img class="invite-image" src="details.png" alt="تفاصيل حفل تخرج ياسمين حلمي">
+
+  <footer>بكل الحب، ننتظركم لمشاركة ياسمين فرحتها 🤎</footer>
+</main>
+
+<dialog id="photoDialog">
+  <h2>صور دعوة التخرج</h2>
+  <img src="cover.png" alt="غلاف الدعوة">
+  <div class="dialog-actions">
+    <button type="button" id="showDetails">عرض تفاصيل الحفل</button>
+    <button type="button" id="closePhotos">إغلاق</button>
+  </div>
+</dialog>
+<dialog id="videoDialog">
+  <h2>فيديو الحفل</h2>
+  <p>لم يتم إرفاق فيديو للحفل حتى الآن. يمكنك إضافة ملف فيديو لاحقًا وتسميته <b>graduation-video.mp4</b> ثم تعديل زر الفيديو ليفتحه.</p>
+  <div class="dialog-actions"><button type="button" id="closeVideo">إغلاق</button></div>
+</dialog>
+
+<script>
+const statusBox = document.getElementById('status');
+const music = document.getElementById('bgMusic');
+const musicToggle = document.getElementById('musicToggle');
+function showStatus(message){ statusBox.textContent = message; statusBox.classList.add('show'); }
+
+async function playMusic(){
+  try {
+    await music.play();
+    musicToggle.textContent = 'إيقاف الموسيقى';
+    document.getElementById('musicLabel').textContent = '🎵 الموسيقى تعمل';
+  } catch (e) {
+    musicToggle.textContent = 'اضغطي لتشغيل الموسيقى';
+    document.getElementById('musicLabel').textContent = '🎵 اضغطي لتشغيل الموسيقى';
+  }
+}
+musicToggle.addEventListener('click', async()=>{
+  if(music.paused) await playMusic();
+  else { music.pause(); musicToggle.textContent = 'تشغيل الموسيقى'; document.getElementById('musicLabel').textContent='🎵 موسيقى الدعوة'; }
+});
+// محاولة التشغيل عند فتح الصفحة؛ بعض المتصفحات تمنع التشغيل التلقائي بالصوت حتى يتفاعل المستخدم.
+window.addEventListener('load', playMusic);
+document.addEventListener('visibilitychange',()=>{ if(!document.hidden && !music.paused) music.play().catch(()=>{}); });
+
+document.getElementById('rsvp').addEventListener('click',()=>{
+  const guest = prompt('اكتبي/اكتب اسمك لتأكيد الحضور:');
+  if(!guest || !guest.trim()) return;
+  const message = 'مرحبًا، أؤكد حضوري حفل تخرج ياسمين حلمي من كلية الإعلام – جامعة القاهرة. الاسم: '+guest.trim();
+  window.open('https://wa.me/?text='+encodeURIComponent(message), '_blank', 'noopener');
+  showStatus('فتحنا واتساب برسالة تأكيد جاهزة. أرسلي الرسالة لإتمام التأكيد.');
+});
+document.getElementById('share').addEventListener('click',async()=>{
+  const data={title:'دعوة تخرج ياسمين حلمي',text:'يسعدنا دعوتكم لمشاركة ياسمين حلمي فرحة التخرج من كلية الإعلام – جامعة القاهرة.',url:location.href};
+  try {
+    if(navigator.share) await navigator.share(data);
+    else { await copyText(data.text+' '+data.url); showStatus('تم نسخ نص الدعوة والرابط، ويمكنك مشاركتهما الآن.'); }
+  } catch(e) { if(e.name !== 'AbortError') showStatus('يمكنك نسخ الرابط من زر «نسخ رابط الدعوة».'); }
+});
+async function copyText(text){
+  if(navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+  const area=document.createElement('textarea'); area.value=text; area.style.position='fixed'; area.style.opacity='0'; document.body.appendChild(area); area.select();
+  const ok=document.execCommand('copy'); area.remove(); if(!ok) throw new Error('copy failed');
+}
+document.getElementById('copy').addEventListener('click',async()=>{
+  try { await copyText(location.href); showStatus('تم نسخ رابط الدعوة. بعد نشر الموقع على GitHub Pages سيكون هذا هو الرابط الذي تشاركينه.'); }
+  catch(e) { showStatus('انسخي رابط الصفحة من شريط العنوان في المتصفح لمشاركته.'); }
+});
+const photoDialog=document.getElementById('photoDialog');
+const videoDialog=document.getElementById('videoDialog');
+document.getElementById('photos').addEventListener('click',()=>photoDialog.showModal());
+document.getElementById('closePhotos').addEventListener('click',()=>photoDialog.close());
+document.getElementById('showDetails').addEventListener('click',()=>{photoDialog.close();document.querySelector('img[src="details.png"]').scrollIntoView({behavior:'smooth',block:'start'});});
+document.getElementById('video').addEventListener('click',()=>videoDialog.showModal());
+document.getElementById('closeVideo').addEventListener('click',()=>videoDialog.close());
+</script>
+</body>
+</html>
